@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.screen {
+  width: 100%;
+  min-height: 100vh;
+  background: #2e2d2d;
+
+  > div {
+    display: flex;
+    div {
+      width: 79%;
+      margin: 0.2rem;
+      > video {
+        width: 99.5%;
+        height: 80vh;
+        object-fit: fill;
+        margin-left: 0.5rem;
+        border: 1px solid rgb(221, 219, 216);
+      }
+      > div {
+        width: 100%;
+        height: 20vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        > button {
+          margin: 1rem;
+          padding: 1rem 2rem;
+          border-radius: 5px;
+          border: none;
+          background: #fa0000;
+          color: #ffffff;
+          &:hover {
+            background: #35ff35;
+          }
+        }
+      }
+      > p {
+        margin-left: 17rem;
+        margin-top: 12rem;
+        font-size: 5rem;
+        color: #fa0000;
+      }
+    }
+    > aside {
+      overflow-y: auto;
+      overflow-x: hidden;
+      height: 100vh;
+      > div {
+        margin: 0.2rem;
+        > video {
+          width: 17rem;
+          height: 10rem;
+        }
+      }
+    }
+  }
+}
+
+.loding {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+@media screen and (max-width: 600px) {
+  .screen {
+    width: 100%;
+    height: 100vh;
+    background: #2e2d2d;
+
+    > div {
+      flex-direction: column;
+      > aside {
+        > div {
+          margin: 0;
+          > video {
+            width: 100%;
+            height: 15rem;
+          }
+        }
+      }
+    }
+    > div {
+      div {
+        width: 100%;
+
+        div > button {
+          margin: 0.4rem;
+        }
+        p {
+          text-align: center;
+          margin: 2rem;
+        }
+      }
+    }
+  }
+}

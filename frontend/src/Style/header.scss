@@ -1,0 +1,34 @@
+header {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1f1e1e;
+
+  > div {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    p {
+      font-size: 2rem;
+
+      color: #fd0000;
+    }
+    > a {
+      font-size: 2rem;
+      margin-right: 4rem;
+      text-decoration: none;
+      color: #fd0000;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+    header {
+        div{
+            padding: 0;
+            > a {
+                margin-right: 1rem;
+            }
+        }
+    }
+}
