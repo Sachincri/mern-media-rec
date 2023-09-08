@@ -61,9 +61,9 @@ export const register = (formData) => async (dispatch) => {
       type: "registerRequest",
     });
 
-    const { data } = await axios.post(`${server}/signup`, formData, {
+    const { data } = await axios.post(`${server}/register`, formData, {
       headers: {
-        "Content-type": "application/json",
+        "Content-Type": "multipart/form-data",
       },
       withCredentials: true,
     });
@@ -75,5 +75,3 @@ export const register = (formData) => async (dispatch) => {
     dispatch({ type: "registerFail", payload: error.response.data.message });
   }
 };
-
-
