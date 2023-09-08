@@ -2,20 +2,20 @@ import { useState, useEffect } from "react";
 
 const ScreenRec = () => {
   const [mediaRecorder, setMediaRecorder] = useState(null);
-  const [blobs, setBlobs] = useState([]);
   const [videoLocal, setVideoLocal] = useState([]);
 
   const screenAccess = async () => {
+    let blobs =[]
     try {
       const stream = await navigator.mediaDevices.getDisplayMedia({
         video: { mediaSorces: screen },
         audio: true,
       });
 
-      const recorder = new MediaRecorder(stream.getTracks());
+      const recorder = new MediaRecorder(stream);
       recorder.ondataavailable = (e) => {
         if (e.data.size > 0) {
-          setBlobs((blobs) => [...blobs, e.data]);
+          blobs = [...blobs, e.data];
         }
       };
       recorder.onstop = () => {

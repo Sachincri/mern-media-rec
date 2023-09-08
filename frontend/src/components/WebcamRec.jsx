@@ -3,11 +3,11 @@ import { useState, useEffect, useRef } from "react";
 function WebcamRec() {
   const [cameraStream, setCameraStream] = useState(null);
   const [mediaRecorder, setMediaRecorder] = useState(null);
-  const [blobsRecorded, setBlobsRecorded] = useState([]);
   const [recordedVideos, setRecordedVideos] = useState([]);
   const videoRef = useRef(null);
 
   const startCamera = async () => {
+    
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
         video: true,
@@ -21,6 +21,7 @@ function WebcamRec() {
   };
 
   const startRecording = () => {
+    let blobs = [];
     try {
       if (cameraStream) {
         const recorder = new MediaRecorder(cameraStream, {
@@ -29,12 +30,12 @@ function WebcamRec() {
 
         recorder.ondataavailable = (e) => {
           if (e.data.size > 0) {
-            setBlobsRecorded((blobs) => [...blobs, e.data]);
+            blobs = [...blobs, e.data];
           }
         };
 
         recorder.onstop = () => {
-          const videoBlob = new Blob(blobsRecorded, { type: "video/mp4" });
+          const videoBlob = new Blob(blobs, { type: "video/mp4" });
           const videoURL = URL.createObjectURL(videoBlob);
           setRecordedVideos((videos) => [...videos, videoURL]);
           localStorage.setItem(

@@ -51,13 +51,13 @@ function App() {
               element={
                 <ProtectedRoute isAuthenticated={isAuthenticated}>
                   <ScreenRec />
-                </ProtectedRoute>
+               </ProtectedRoute>
               }
             />
             <Route
               path="/webcam"
               element={
-                <ProtectedRoute isAuthenticated={!isAuthenticated} redirect="/">
+                <ProtectedRoute isAuthenticated={isAuthenticated} redirect="/">
                   <WebcamRec />
                  </ProtectedRoute> 
               }
